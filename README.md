@@ -15,6 +15,7 @@ python neural_net.py
 ```
 ## Results
 The results should show how the loss decreased over time and the four correct predictions which are the solutions to the XOR problem.
+![Training Loss Graph](loss_graph.png)
 ```
 Epoch 0, Loss: 0.4965
 Epoch 1000, Loss: 0.4948
