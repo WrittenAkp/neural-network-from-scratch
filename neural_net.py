@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 def sigmoid_derivative(x):
@@ -9,6 +10,7 @@ np.random.seed(42)
 weights1 = np.random.rand(2, 4)
 weights2 = np.random.rand(4, 1)
 learning_rate = 0.1
+losses = []
 for epoch in range(10000):
     hidden = sigmoid(np.dot(inputs, weights1))
     prediction = sigmoid(np.dot(hidden, weights2))
@@ -21,6 +23,13 @@ for epoch in range(10000):
     if epoch % 1000 == 0:
         loss = np.mean(np.abs(error))
         print(f'Epoch {epoch}, Loss: {loss:.4f}')
+        losses.append(loss)
 print("\nFinal Predictions:")
 for i in range(len(inputs)):
     print(f"{inputs[i]} -> {prediction[i][0]:.4f} | expected: {outputs[i][0]}")
+plt.plot(range(0, 10000, 1000), losses)
+plt.title('Training Loss Over Time')
+plt.xlabel('Epoch (x1000)')
+plt.ylabel('Loss')
+plt.savefig('loss_graph.png')
+plt.show()
