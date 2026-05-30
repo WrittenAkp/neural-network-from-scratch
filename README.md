@@ -9,6 +9,9 @@ Install Dependency:
 ```
 pip install numpy
 ```
+```
+pip install matplotlib
+```
 Run the network:
 ```
 python neural_net.py
